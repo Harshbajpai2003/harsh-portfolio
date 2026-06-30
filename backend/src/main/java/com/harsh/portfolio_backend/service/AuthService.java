@@ -1,5 +1,8 @@
 package com.harsh.portfolio_backend.service;
 
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
+
 import com.harsh.portfolio_backend.dto.AuthResponse;
 import com.harsh.portfolio_backend.dto.LoginRequest;
 import com.harsh.portfolio_backend.dto.RegisterRequest;
@@ -7,9 +10,8 @@ import com.harsh.portfolio_backend.entity.User;
 import com.harsh.portfolio_backend.exception.BadRequestException;
 import com.harsh.portfolio_backend.repository.UserRepository;
 import com.harsh.portfolio_backend.security.JwtUtil;
+
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
