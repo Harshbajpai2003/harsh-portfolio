@@ -1,5 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import Layout from './components/layout/Layout';
+import ProtectedRoute from './components/ui/ProtectedRoute';
 import Home from './pages/Home';
 import About from './pages/About';
 import Skills from './pages/Skills';
@@ -8,6 +9,8 @@ import Experience from './pages/Experience';
 import Certifications from './pages/Certifications';
 import Blog from './pages/Blog';
 import Contact from './pages/Contact';
+import Login from './pages/Login';
+import AdminDashboard from './pages/admin/AdminDashboard';
 import NotFound from './pages/NotFound';
 
 function App() {
@@ -22,6 +25,15 @@ function App() {
         <Route path="/certifications" element={<Certifications />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/login" element={<Login />} />
+        <Route
+          path="/admin"
+          element={
+            <ProtectedRoute>
+              <AdminDashboard />
+            </ProtectedRoute>
+          }
+        />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Layout>
