@@ -11,6 +11,10 @@ import Blog from './pages/Blog';
 import Contact from './pages/Contact';
 import Login from './pages/Login';
 import AdminDashboard from './pages/admin/AdminDashboard';
+import AdminAddProject from './pages/admin/AdminAddProject';
+import AdminAddSkill from './pages/admin/AdminAddSkill';
+import AdminAddCertificate from './pages/admin/AdminAddCertificate';
+import AdminAddBlog from './pages/admin/AdminAddBlog';
 import NotFound from './pages/NotFound';
 
 function App() {
@@ -26,14 +30,11 @@ function App() {
         <Route path="/blog" element={<Blog />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<Login />} />
-        <Route
-          path="/admin"
-          element={
-            <ProtectedRoute>
-              <AdminDashboard />
-            </ProtectedRoute>
-          }
-        />
+        <Route path="/admin" element={<ProtectedRoute><AdminDashboard /></ProtectedRoute>} />
+        <Route path="/admin/projects/new" element={<ProtectedRoute><AdminAddProject /></ProtectedRoute>} />
+        <Route path="/admin/skills/new" element={<ProtectedRoute><AdminAddSkill /></ProtectedRoute>} />
+        <Route path="/admin/certificates/new" element={<ProtectedRoute><AdminAddCertificate /></ProtectedRoute>} />
+        <Route path="/admin/blogs/new" element={<ProtectedRoute><AdminAddBlog /></ProtectedRoute>} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Layout>

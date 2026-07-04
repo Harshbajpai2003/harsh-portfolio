@@ -4,6 +4,7 @@ import { useAuth } from '../../context/AuthContext';
 function ProtectedRoute({ children }) {
   const { user, loading } = useAuth();
 
+  // Wait until localStorage has been read before deciding
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
