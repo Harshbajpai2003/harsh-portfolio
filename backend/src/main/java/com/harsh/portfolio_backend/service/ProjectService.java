@@ -3,6 +3,7 @@ package com.harsh.portfolio_backend.service;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.harsh.portfolio_backend.dto.ProjectRequest;
 import com.harsh.portfolio_backend.dto.ProjectResponse;
@@ -15,6 +16,7 @@ import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
+@Transactional(readOnly = true)   // <-- add this at class level
 public class ProjectService {
 
     private final ProjectRepository projectRepository;
@@ -40,12 +42,14 @@ public class ProjectService {
         return projectMapper.toResponse(project);
     }
 
+    @Transactional  // override class default (readOnly=true) for writes
     public ProjectResponse createProject(ProjectRequest request) {
         Project project = projectMapper.toEntity(request);
         Project saved = projectRepository.save(project);
         return projectMapper.toResponse(saved);
     }
 
+    @Transactional
     public ProjectResponse updateProject(Long id, ProjectRequest request) {
         Project project = projectRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Project not found with id: " + id));
@@ -54,6 +58,7 @@ public class ProjectService {
         return projectMapper.toResponse(updated);
     }
 
+    @Transactional
     public void deleteProject(Long id) {
         if (!projectRepository.existsById(id)) {
             throw new ResourceNotFoundException("Project not found with id: " + id);
