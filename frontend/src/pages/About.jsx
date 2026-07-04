@@ -23,18 +23,14 @@ function About() {
             Full Stack Java Developer
           </h2>
           <p className="text-gray-400 leading-relaxed mb-4">
-            I am a passionate Full Stack Java Developer currently pursuing my B.Tech in
-            Computer Science Engineering (2026) from Lucknow, Uttar Pradesh, India.
+            I am a passionate Full Stack Java Developer completed my B.Tech in
+            Computer Science Engineering (2026) from Lucknow, Uttar Pradesh, India. I enjoy turning ideas into real-world solutions through clean code and continuously improving my development skills.
           </p>
           <p className="text-gray-400 leading-relaxed mb-4">
-            I specialize in building scalable Java applications using Spring Boot and
-            modern web experiences using React.js. My core strength lies in designing
-            robust backend systems with clean RESTful APIs, JWT authentication, and
-            efficient database management.
+            My expertise includes Java, Spring Boot, React.js, MySQL, JDBC, Servlets, and JSP. I have built projects such as an AI-driven Healthcare Platform, an E-Library Management System, and a Bank Management System, which have strengthened my understanding of both frontend and backend development
           </p>
           <p className="text-gray-400 leading-relaxed">
-            I have hands-on experience with Docker, Git, and CI/CD pipelines, and I
-            enjoy building full-stack solutions from database design to polished UI.
+            I am a curious learner who loves exploring new technologies, solving challenging problems, and working on impactful projects. My goal is to grow as a software engineer, contribute to innovative products, and build applications that make a meaningful difference in people's lives.
           </p>
         </motion.div>
 
