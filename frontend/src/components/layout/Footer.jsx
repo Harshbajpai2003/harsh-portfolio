@@ -18,7 +18,7 @@ function Footer() {
           >
             <FaGithub />
           </a>
-
+          
           <a
             href="https://www.linkedin.com/in/harsh-bajpai-200h3"
             target="_blank"
@@ -28,7 +28,6 @@ function Footer() {
           >
             <FaLinkedin />
           </a>
-
           <a
             href="mailto:harshbaj369@gmail.com"
             className="hover:text-primary transition-colors"
