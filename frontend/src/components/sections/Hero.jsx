@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 function Hero() {
   return (
@@ -38,12 +39,7 @@ function Hero() {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
-          <a
-            href="/projects"
-            className="px-8 py-3 bg-primary hover:bg-primary/90 text-white rounded-full font-medium transition-colors"
-          >
-            View My Work
-          </a>
+          <Link to="/projects" className="...">View My Work</Link>
           <a
             href="/resume.pdf"
             download
