@@ -29,26 +29,29 @@ function AdminDashboard() {
   const [certificates, setCertificates] = useState([]);
   const [messages, setMessages] = useState([]);
   const [activeTab, setActiveTab] = useState('overview');
+  const [experiences, setExperiences] = useState([]);
 
-  useEffect(() => {
-    Promise.all([
-      api.get('/projects'),
-      api.get('/skills'),
-      api.get('/certificates'),
-      api.get('/contact'),
-    ]).then(([p, s, c, m]) => {
-      setProjects(p.data);
-      setSkills(s.data);
-      setCertificates(c.data);
-      setMessages(m.data);
-      setStats({
-        projects: p.data.length,
-        skills: s.data.length,
-        certificates: c.data.length,
-        messages: m.data.length,
-      });
-    }).catch(console.error);
-  }, []);
+ useEffect(() => {
+  Promise.all([
+    api.get('/projects'),
+    api.get('/skills'),
+    api.get('/certificates'),
+    api.get('/contact'),
+    api.get('/experiences'),
+  ]).then(([p, s, c, m, e]) => {
+    setProjects(p.data);
+    setSkills(s.data);
+    setCertificates(c.data);
+    setMessages(m.data);
+    setExperiences(e.data);
+    setStats({
+      projects: p.data.length,
+      skills: s.data.length,
+      certificates: c.data.length,
+      messages: m.data.length,
+    });
+  }).catch(console.error);
+}, []);
 
   const handleLogout = () => { logout(); navigate('/'); };
 
@@ -63,7 +66,7 @@ function AdminDashboard() {
     setMessages(messages.map(m => m.id === id ? { ...m, read: true } : m));
   };
 
-  const tabs = ['overview', 'projects', 'skills', 'certificates', 'messages'];
+ const tabs = ['overview', 'projects', 'skills', 'experiences', 'certificates', 'messages'];
 
   return (
     <div className="max-w-7xl mx-auto px-6 py-20">
@@ -199,6 +202,45 @@ function AdminDashboard() {
           )}
         </div>
       )}
+
+      {/* Experiences Tab */}
+{activeTab === 'experiences' && (
+  <div className="space-y-3">
+    <div className="flex justify-between items-center mb-4">
+      <h3 className="font-heading font-semibold text-lg">Experience</h3>
+      <button
+        onClick={() => navigate('/admin/experiences/new')}
+        className="flex items-center gap-2 px-4 py-2 bg-primary hover:bg-primary/90 text-white rounded-xl text-sm transition-colors"
+      >
+        <FaPlus /> Add New
+      </button>
+    </div>
+    {experiences.length === 0 ? (
+      <p className="text-gray-400 text-center py-10">No experience entries yet.</p>
+    ) : (
+      experiences.map(exp => (
+        <div key={exp.id} className="bg-white/5 border border-white/10 rounded-2xl p-5 flex items-start justify-between gap-4">
+          <div>
+            <span className={`inline-block px-2 py-0.5 rounded-full text-xs font-medium mb-2 ${
+              exp.type === 'EDUCATION' ? 'bg-accent/20 text-accent' : 'bg-primary/20 text-primary'
+            }`}>
+              {exp.type}
+            </span>
+            <h4 className="font-medium text-white">{exp.title}</h4>
+            <p className="text-sm text-primary">{exp.organization}</p>
+            <p className="text-xs text-gray-500">{exp.startDate} — {exp.endDate || 'Present'}</p>
+          </div>
+          <button
+            onClick={() => deleteItem('experiences', exp.id, setExperiences, experiences)}
+            className="flex-shrink-0 p-2 bg-red-500/10 hover:bg-red-500/20 text-red-400 rounded-lg transition-colors"
+          >
+            <FaTrash />
+          </button>
+        </div>
+      ))
+    )}
+  </div>
+)}
 
       {/* Certificates Tab */}
       {activeTab === 'certificates' && (
