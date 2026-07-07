@@ -1,16 +1,23 @@
-# React + Vite
+# Harsh Bajpai — Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Full-stack portfolio website built with React (Vite) and Spring Boot.
 
-Currently, two official plugins are available:
+## Live Site
+- Frontend: https://harsh-portfolio-eta-one.vercel.app
+- Backend API: https://harsh-portfolio-production-de81.up.railway.app/api
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Tech Stack
+**Frontend:** React 19, Vite, Tailwind CSS v4, React Router, Axios, Framer Motion, React Hook Form
+**Backend:** Java 21, Spring Boot 3.5, Spring Security, Spring Data JPA, MySQL, JWT
+**DevOps:** Docker, Docker Compose, Railway, Vercel
 
-## React Compiler
+## Features
+- Public pages: Home, About, Skills, Projects, Experience, Certifications, Blog, Contact
+- Admin dashboard with JWT authentication
+- Full CRUD for projects, skills, certificates, experiences, blog posts
+- Contact form with message management
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Running Locally
+Backend: `cd backend && ./mvnw spring-boot:run`
+Frontend: `cd frontend && npm install && npm run dev`
+Or full stack: `docker compose up --build`
