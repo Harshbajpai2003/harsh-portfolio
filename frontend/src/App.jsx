@@ -16,6 +16,7 @@ import AdminAddSkill from './pages/admin/AdminAddSkill';
 import AdminAddCertificate from './pages/admin/AdminAddCertificate';
 import AdminAddBlog from './pages/admin/AdminAddBlog';
 import NotFound from './pages/NotFound';
+import AdminAddExperience from './pages/admin/AdminAddExperience';
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
         <Route path="/admin/certificates/new" element={<ProtectedRoute><AdminAddCertificate /></ProtectedRoute>} />
         <Route path="/admin/blogs/new" element={<ProtectedRoute><AdminAddBlog /></ProtectedRoute>} />
         <Route path="*" element={<NotFound />} />
+        <Route path="/admin/experiences/new" element={<ProtectedRoute><AdminAddExperience /></ProtectedRoute>} />
       </Routes>
     </Layout>
   );

@@ -113,6 +113,7 @@ function AdminDashboard() {
               { label: 'Add Skill', path: '/admin/skills/new' },
               { label: 'Add Certificate', path: '/admin/certificates/new' },
               { label: 'Write Blog Post', path: '/admin/blogs/new' },
+              { label: 'Add Experience', path: '/admin/experiences/new' },
             ].map(action => (
               <button
                 key={action.label}
