@@ -39,9 +39,9 @@ public class Blog {
     @Column(length = 500)
     private String summary;
 
-    @Lob
-    @Column(columnDefinition = "LONGTEXT")
-    private String content; // full blog body, can be very long (supports markdown/HTML)
+  @Lob
+@Column(columnDefinition = "TEXT")
+private String content;
 
     @Column(name = "cover_image_url")
     private String coverImageUrl;
