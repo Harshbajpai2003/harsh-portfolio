@@ -45,7 +45,7 @@ function About() {
             <div className="space-y-3 text-sm text-gray-400">
               <div className="flex items-center gap-3">
                 <FaMapMarkerAlt className="text-primary flex-shrink-0" />
-                <span>Lucknow, Uttar Pradesh, India</span>
+                <span>Noida, Uttar Pradesh, India</span>
               </div>
               <div className="flex items-center gap-3">
                 <FaEnvelope className="text-primary flex-shrink-0" />
